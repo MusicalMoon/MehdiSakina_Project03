@@ -9,9 +9,10 @@ public class Health : MonoBehaviour
 
     //healthbar variables
     private int _currentHealth;
-    [SerializeField] private healthBar _healthBar;
+    [SerializeField] private HealthBar _healthBar;
 
     [SerializeField] int _DamageAmount;
+    //time to move healthbars
 
     private void Start()
     {
@@ -29,12 +30,11 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int DamageAmount)
     {
-        
 
             if (_currentHealth > 0)
             {
-                //particle
-                _currentHealth -= DamageAmount;
+            //particle
+            _currentHealth -= DamageAmount;
                 Debug.Log("Health Remaining" + _maxHealth);
 
                 _healthBar.UpdateHealthBar(_maxHealth, _currentHealth);
@@ -50,6 +50,7 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
+
         gameObject.SetActive(false);
     }
 }
