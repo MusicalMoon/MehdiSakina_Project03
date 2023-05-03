@@ -16,12 +16,17 @@ public class Health : MonoBehaviour
 
     //Flash
     private DamageFlash _flash;
+
+    //Falling to ground
+    private Rigidbody rb;
     
 
     private void Start()
     {
-        _currentHealth = _maxHealth;
-        
+        _currentHealth = _maxHealth;   
+        rb = GetComponent<Rigidbody>();
+        rb.useGravity = false;
+
     }
 
     private void Update()
@@ -56,9 +61,8 @@ public class Health : MonoBehaviour
     }
     private void RigidBody()
     {
-        
-        //Rigidbody gameObjectsRigidBody = this.AddComponent<Rigidbody>(); // Add the rigidbody.
-        //gameObjectsRigidBody.mass = 5; // Set the GO's mass to 5 via the Rigidbody.
+
+        rb.useGravity = true;
 
         Invoke("Die", 3);
     }
