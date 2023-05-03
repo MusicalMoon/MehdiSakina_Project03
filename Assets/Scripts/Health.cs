@@ -52,7 +52,6 @@ public class Health : MonoBehaviour
         
             if (_currentHealth > 0)
             {
-                //particle
                 _currentHealth -= DamageAmount;
                 _healthBar.UpdateHealthBar(_maxHealth, _currentHealth);
             }   
@@ -60,21 +59,18 @@ public class Health : MonoBehaviour
 
             if(_currentHealth <= 0)
             {
-
-                //WaitForSeconds(2);
                 RigidBody();
             }
 
             if(_blood != null)
             {
-            
-                Debug.Log("Player blood!");
+                //Debug.Log("Player blood!");
                 Instantiate(_blood, transform.position, transform.rotation);
             
             }
             if (_hurt != null)
             {
-                Debug.Log("Player grunt!");
+                //Debug.Log("Player grunt!");
                 AudioSource newSound =
                         Instantiate(_hurt, transform.position, transform.rotation);
                 Destroy(newSound.gameObject, newSound.clip.length);

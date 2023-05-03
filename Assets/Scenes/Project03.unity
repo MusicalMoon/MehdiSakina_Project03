@@ -583,7 +583,7 @@ MonoBehaviour:
   _maxHealth: 3
   _healthBar: {fileID: 1828459460}
   _DamageAmount: 1
-  _blood: {fileID: 0}
+  _blood: {fileID: 8853158410414862375, guid: 8963b1ce0f29b5444a98ac4e5f32b44d, type: 3}
   _dead: {fileID: 7978392058611428608, guid: b3f5a5ce4f74d434a9ea76035de404df, type: 3}
   _hurt: {fileID: 4990018985402562234, guid: 84a485496fe345544acbb651da7f36b8, type: 3}
 --- !u!54 &1444043998
