@@ -32,6 +32,8 @@ public class Health : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
 
+        var cubeRenderer = this.GetComponent<MeshRenderer>().material;
+
     }
 
     private void Update()
@@ -64,9 +66,12 @@ public class Health : MonoBehaviour
             }
 
             if(_blood != null)
-        {
-
-        }
+            {
+            
+                Debug.Log("Player blood!");
+                Instantiate(_blood, transform.position, transform.rotation);
+            
+            }
 
         
     }
@@ -74,18 +79,18 @@ public class Health : MonoBehaviour
     {
 
         rb.useGravity = true;
-
+        
         Invoke("Die", 3);
     }
 
     private void Die()
     {
-        
-        gameObject.SetActive(false);
-        if(_dead != null)
+        if (_dead != null)
         {
-
+            Instantiate(_dead, transform.position, transform.rotation);
         }
+        gameObject.SetActive(false);
+        
     }
 }
 
