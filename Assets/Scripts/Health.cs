@@ -32,7 +32,7 @@ public class Health : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
 
-        var cubeRenderer = this.GetComponent<MeshRenderer>().material;
+        _flash = this.GetComponent<DamageFlash>();
 
     }
 
@@ -42,15 +42,13 @@ public class Health : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             TakeDamage(_DamageAmount);
-            //_flash.FlashStart();
-           
         }
     }
 
     public void TakeDamage(int DamageAmount)
     {
-        
-            if (_currentHealth > 0)
+        _flash.FlashStart();
+        if (_currentHealth > 0)
             {
                 _currentHealth -= DamageAmount;
                 _healthBar.UpdateHealthBar(_maxHealth, _currentHealth);
