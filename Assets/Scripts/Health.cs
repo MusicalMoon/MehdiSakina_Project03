@@ -19,8 +19,13 @@ public class Health : MonoBehaviour
 
     //Falling to ground
     private Rigidbody rb;
-    
 
+    //Particles
+    [SerializeField] ParticleSystem _blood;
+    [SerializeField] ParticleSystem _dead;
+
+    //Sound
+    [SerializeField] AudioSource _hurt;
     private void Start()
     {
         _currentHealth = _maxHealth;   
@@ -57,6 +62,12 @@ public class Health : MonoBehaviour
                 //WaitForSeconds(2);
                 RigidBody();
             }
+
+            if(_blood != null)
+        {
+
+        }
+
         
     }
     private void RigidBody()
@@ -71,6 +82,10 @@ public class Health : MonoBehaviour
     {
         
         gameObject.SetActive(false);
+        if(_dead != null)
+        {
+
+        }
     }
 }
 

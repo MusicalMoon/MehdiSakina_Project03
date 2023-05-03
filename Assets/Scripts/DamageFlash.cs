@@ -21,6 +21,8 @@ public class DamageFlash : MonoBehaviour
     public void FlashStart()
     {
         //meshRenderer.material.color = Color.red;
+        var cubeRenderer = this.GetComponent<MeshRenderer>().material;
+        cubeRenderer.color = Color.red;
         Invoke("FlashStop", flashTime);
     }
 
