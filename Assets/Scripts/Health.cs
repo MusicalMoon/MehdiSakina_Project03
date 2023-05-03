@@ -72,8 +72,15 @@ public class Health : MonoBehaviour
                 Instantiate(_blood, transform.position, transform.rotation);
             
             }
+            if (_hurt != null)
+            {
+                Debug.Log("Player grunt!");
+                AudioSource newSound =
+                        Instantiate(_hurt, transform.position, transform.rotation);
+                Destroy(newSound.gameObject, newSound.clip.length);
+            }
 
-        
+
     }
     private void RigidBody()
     {
