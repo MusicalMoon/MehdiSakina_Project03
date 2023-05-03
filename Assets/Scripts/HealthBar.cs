@@ -28,7 +28,6 @@ public class HealthBar : MonoBehaviour
         math = currentHealth / maxHealth;
         _FronthealthBarSprite.fillAmount = math;
 
-
     }
 
     private void Update()
