@@ -5,7 +5,8 @@ using UnityEngine;
 public class DamageFlash : MonoBehaviour
 {
     [SerializeField] GameObject enemy;
-    Material origColor;
+    Color origColor;
+    Material material;
     float flashTime = .15f;
 
     // Start is called before the first frame update
@@ -13,19 +14,18 @@ public class DamageFlash : MonoBehaviour
     {
         //on start fills in variable
         //origColor = m.material.color;
-        //origColor = enemy.GetComponent<MeshRenderer>();
-
+        material = enemy.GetComponent<MeshRenderer>().material;
+        origColor = material.color;
     }
 
 
     public void FlashStart()
     {
-        //meshRenderer.material.color = Color.red;
-        var asdf = enemy.GetComponent<MeshRenderer>().material;
+        
 
-        if (asdf.color != Color.red)
+        if (material.color != Color.red)
         {
-            asdf.color = Color.red;
+            material.color = Color.red;
         }
 
         Invoke("FlashStop", flashTime);
@@ -33,7 +33,7 @@ public class DamageFlash : MonoBehaviour
 
     public void FlashStop()
     {
-        var asdf = enemy.GetComponent<MeshRenderer>().material;
-        asdf.color = Color.blue;
+        
+        material.color = origColor;
     }
 }

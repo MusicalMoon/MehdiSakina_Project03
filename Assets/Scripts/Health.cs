@@ -80,7 +80,13 @@ public class Health : MonoBehaviour
     {
 
         rb.useGravity = true;
-        
+        if (_blood != null)
+        /*{
+            //Debug.Log("Player blood!");
+            Instantiate(_blood, transform.position, transform.rotation);
+
+        }*/
+
         Invoke("Die", 3);
     }
 

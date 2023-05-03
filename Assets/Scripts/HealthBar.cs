@@ -8,7 +8,7 @@ public class HealthBar : MonoBehaviour
 
     [SerializeField] private Image _FronthealthBarSprite;
     [SerializeField] private Image _backhealthBarSprite;
-    private float math;
+    private float math = 1f;
 
     [SerializeField] float chipTime = 0.5f;
 
@@ -19,6 +19,8 @@ public class HealthBar : MonoBehaviour
     private void Start()
     {
         _cam = Camera.main;
+        _backhealthBarSprite.fillAmount = 1;
+        _FronthealthBarSprite.fillAmount = 1;
     }
 
     
@@ -34,8 +36,11 @@ public class HealthBar : MonoBehaviour
     {
         transform.rotation = Quaternion.LookRotation(transform.position - _cam.transform.position);
 
-        _backhealthBarSprite.fillAmount = Mathf.MoveTowards(_backhealthBarSprite.fillAmount,
-            math, chipTime * Time.deltaTime);
+        if (_backhealthBarSprite.fillAmount > math)
+        {
+            _backhealthBarSprite.fillAmount = Mathf.MoveTowards(_backhealthBarSprite.fillAmount,
+                math, chipTime * Time.deltaTime);
+        }
     }
 
 }
